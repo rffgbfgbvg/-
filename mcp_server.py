@@ -25,7 +25,7 @@ if API_KEY and not MOCK:
     from openai import OpenAI
     client = OpenAI(api_key=API_KEY, base_url=BASE_URL)
 
-mcp = FastMCP("wecom-video-plugin")
+mcp = FastMCP("wecom-video-plugin", host="0.0.0.0", port=int(os.getenv("PORT", 8000)))
 
 
 def _download(url: str, suffix: str = ".mp4") -> str:
